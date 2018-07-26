@@ -3,7 +3,7 @@ var csjs = require('csjs-inject')
 
 module.exports = displayAddressInput
 
-function displayAddressInput({name, theme.classes: css}) {
+function displayAddressInput({name, theme: {classes: css}}) {
   var input = bel`<input class=${css.inputField} placeholder='0x6e2...'>`
   return bel`
     <div class=${css.inputContainer}>
