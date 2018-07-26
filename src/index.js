@@ -1,6 +1,8 @@
 var bel = require('bel')
 var csjs = require('csjs-inject')
 
+module.exports = displayAddressInput
+
 var fonts = [
   'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
   'https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet'
@@ -21,8 +23,8 @@ var colors = {
 }
 
 function displayAddressInput() {
-  var input = bel`<input placeholder='0x6e2...'>`
-  var el = bel`
+  var input = bel`<input class=${css.inputField} placeholder='0x6e2...'>`
+  return bel`
     <div class=${css.inputContainer}>
       <div class=${css.inputTitle}>address</div>
       <div class=${css.inputFields}>
@@ -30,8 +32,6 @@ function displayAddressInput() {
         ${input}
       </div>
     </div>`
-
-  document.body.appendChild(el)
 }
 
 var css = csjs`
@@ -66,14 +66,14 @@ var css = csjs`
   .icon {
     color: ${colors.white};
   }
-  input {
+  .inputField {
     ${inputStyle()}
     font-size: 1em;
     color: ${colors.slateGrey};
     display: flex;
     align-items: stretch;
   }
-  input::placeholder {
+  .inputField::placeholder {
     color: ${colors.white};
   }
 `
@@ -85,5 +85,3 @@ function inputStyle () {
     padding: 5px 10px;
   `
 }
-
-displayAddressInput()
