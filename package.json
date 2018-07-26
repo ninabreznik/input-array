@@ -1,6 +1,6 @@
 {
   "name": "input-address",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An address-input-type component built with bel and csjs-inject",
   "main": "src/index.js",
   "scripts": {
