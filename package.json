@@ -1,7 +1,7 @@
 {
-  "name": "input-address",
-  "version": "1.0.4",
-  "description": "An address-input-type component built with bel and csjs-inject",
+  "name": "input-array",
+  "version": "1.0.0",
+  "description": "An array-input-type component built with bel and csjs-inject",
   "main": "src/index.js",
   "scripts": {
       "start": "budo src/index.js:bundle.js --dir ./ --live --open",
