@@ -1,11 +1,11 @@
 {
   "name": "input-array",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An array-input-type component built with bel and csjs-inject",
   "main": "src/index.js",
   "scripts": {
-      "start": "budo src/index.js:bundle.js --dir ./ --live --open",
-      "build": "browserify src/index.js > bundle.js"
+    "start": "budo src/index.js:bundle.js --dir ./ --live --open",
+    "build": "browserify src/index.js > bundle.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,10 @@
   },
   "dependencies": {
     "bel": "^6.0.0",
-    "csjs-inject": "^1.0.1"
+    "csjs-inject": "^1.0.1",
+    "input-address": "^1.0.5",
+    "input-boolean": "^1.0.6",
+    "input-integer": "^1.0.7",
+    "input-string": "^1.0.7"
   }
 }
