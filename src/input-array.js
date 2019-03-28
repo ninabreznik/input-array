@@ -27,7 +27,7 @@ function displayArrayInput ({ theme: { classes: css, colors }, type, cb }) {
       container.appendChild(innerContainer)
       next({ container: innerContainer, arr, cb })
     } else { // final step (stop recursion)
-      container.appendChild(returnInputFields({ classes: { css, colors } }, type, cb))
+      container.appendChild(returnInputFields({ classes: css, colors }, type, cb))
     }
   }
   function plusMinus ({ container, arr, cb }) {
