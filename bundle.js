@@ -11400,8 +11400,8 @@ const validator = require('solidity-validator')
 module.exports = displayBooleanInput
 
 function displayBooleanInput ({ theme: { classes: css, colors }, cb }) {
-  const boolFalse = bel `<div class=${css.false} data-type="boolean" value="false" onclick=${toggle}>false</div>`
-  const boolTrue = bel `<div class=${css.true} data-type="boolean" value="true" onclick=${toggle}>true</div>`
+  const boolFalse = bel `<div class=${css.false} data-state="active" data-type="boolean" value="false" onclick=${toggle}>false</div>`
+  const boolTrue = bel `<div class=${css.true} data-state="" data-type="boolean" value="true" onclick=${toggle}>true</div>`
   const input = bel`<div class=${css.booleanField}>
     ${boolFalse}
     ${boolTrue}
@@ -11410,14 +11410,18 @@ function displayBooleanInput ({ theme: { classes: css, colors }, cb }) {
   function toggle (e) {
     const value = e.target.innerHTML
     if (value === 'true') {
-      boolFalse.style.color = colors.slateGrey
+      boolFalse.style.color = colors.whiteSmoke
       boolFalse.style.backgroundColor = colors.dark
+      boolFalse.dataset.state = ""
+      boolTrue.dataset.state = "active"
       boolTrue.style.color = colors.dark
       boolTrue.style.backgroundColor = colors.aquaMarine
     } else if (value === 'false') {
-      boolTrue.style.color = colors.slateGrey
+      boolTrue.style.color = colors.whiteSmoke
       boolTrue.style.backgroundColor = colors.dark
-      boolFalse.style.color = colors.dark
+      boolTrue.dataset.state = ""
+      boolFalse.dataset.state = "active"
+      boolFalse.style.color = colors.whiteSmoke
       boolFalse.style.backgroundColor = colors.violetRed
     }
     cb(validator.getMessage('boolean', value), value)

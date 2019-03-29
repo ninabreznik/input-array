@@ -1,6 +1,6 @@
 {
   "name": "input-array",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "An array-input-type component built with bel and csjs-inject",
   "main": "src/input-array.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "bel": "^6.0.0",
     "csjs-inject": "^1.0.1",
     "input-address": "^2.1.0",
-    "input-boolean": "^2.1.0",
+    "input-boolean": "^2.2.1",
     "input-integer": "^3.1.1",
     "input-string": "^2.1.0",
     "solidity-validator": "^0.1.1"
