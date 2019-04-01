@@ -4,6 +4,7 @@ const inputAddress = require("input-address")
 const inputInteger = require("input-integer")
 const inputBoolean = require("input-boolean")
 const inputString = require("input-string")
+const inputByte = require("input-byte")
 const validator = require('solidity-validator')
 
 module.exports = displayArrayInput
@@ -42,7 +43,7 @@ function displayArrayInput ({ theme: { classes: css, colors }, type, cb }) {
 }
 function returnInputFields (theme, type, cb) {
   if (type.includes("int")) return inputInteger({ theme, type, cb })
-  else if (type.includes("byte")) return inputString({ theme, type, cb })
+  else if (type.includes("byte")) return inputByte({ theme, type, cb })
   else if (type.includes("string")) return inputString({ theme, type, cb })
   else if (type.includes("bool")) return inputBoolean({ theme, type, cb })
   else if (type.includes("fixed")) return inputInteger({ theme, type, cb })
