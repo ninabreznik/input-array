@@ -1,6 +1,6 @@
 {
   "name": "input-array",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "An array-input-type component built with bel and csjs-inject",
   "main": "src/input-array.js",
   "scripts": {
