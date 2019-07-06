@@ -14379,7 +14379,7 @@ function getMessage(type, str) {
   if (type.search(/\bbool/) != -1) return 'The value is not a boolean.'
   if (type.search(/\baddress/) != -1) return 'The value is not a valid address.'
   if (type.search(/\bbytes/) != -1) return 'The value is not a valid bytes.'
-  if (type.search(/\bbyte/) != -1) return 'The value is not a valid byte.'
+  if (type.search(/\bbyte/) != -1) return 'The value is not a valid bytes.'
 }
 
 },{"./isValid":44,"./util/assertString":45}],37:[function(require,module,exports){
@@ -14466,6 +14466,7 @@ function isByteArray(str) {
   return byteSize >= 1 && byteSize <= 32 && hexRegularPattern.test(str)
 }
 },{"./util/assertString":45}],41:[function(require,module,exports){
+// byte is an alias for bytes1
 const assertString = require('./util/assertString')
 
 module.exports = isBytes
@@ -14475,7 +14476,7 @@ const hexRegularPattern = new RegExp(/^0x[0-9a-fA-F]+/)
 function isBytes(str, exponent) {
   assertString(str)
   const byteSize = (str.length - 2) / 2
-  return byteSize == exponent && hexRegularPattern.test(str)
+  return byteSize <= exponent && hexRegularPattern.test(str)
 }
 
 },{"./util/assertString":45}],42:[function(require,module,exports){
@@ -14525,8 +14526,16 @@ function isValid(type, value) {
   if (type.search(/\bint/) != -1) return isInt(value, type.substring(3))
   if (type.search(/\bbool/) != -1) return isBoolean(value)
   if (type.search(/\baddress/) != -1) return isAddress(value)
-  if (type.search(/\bbytes/) != -1) return isBytes(value, type.substring(5))
-  if (type.search(/\bbyte/) != -1) return isBytes(value, type.substring(4))
+  if (type.search(/\bbytes/) != -1) {
+    let len = 5
+    let exponent = type.length == len ? 32 : parseInt(type.substring(len))
+    return isBytes(value, exponent)
+  }
+  if (type.search(/\bbyte/) != -1) {
+    let len = 4
+    let exponent = type.length == len ? 1 : parseInt(type.substring(len))
+    return isBytes(value, exponent)
+  }
   return true
 }
 
